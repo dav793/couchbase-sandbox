@@ -1,7 +1,12 @@
 # Couchbase sandbox
 Exploration of Couchbase DB
 
-## Running
+## 1. Running
+First, ensure [Docker Desktop](https://www.docker.com/get-docker) is installed in your machine.
+
+```cmd
+docker -v
+```
 
 ### Run as docker container
 **Windows/Mac OS/Linux:**
