@@ -1,0 +1,12 @@
+version: '3.0' 
+
+services:
+  db-server:
+    image: couchbase/server:enterprise-7.2.0
+    container_name: ${DB_SERVER_NAME}
+    restart: "no"
+    ports:
+      - "8091-8096:8091-8096"
+      - "11210-11211:11210-11211"
+    volumes:
+      - "${WORKING_DIR}/docker/logs:/opt/couchbase/var/lib/couchbase/logs"
