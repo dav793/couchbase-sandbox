@@ -26,7 +26,7 @@ docker exec -it db /bin/bash
 
     **Windows:**
     ```cmd
-    cp .env.template .env
+    copy .env.template .env
     notepad .env
     ```
 
