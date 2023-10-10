@@ -44,10 +44,21 @@ docker exec -it db /bin/bash
     docker-compose --verbose --env-file .env -f docker/docker-compose.yml up 
     ```
 
-    Then, to open shell in running container:
+    Then, go to `http://localhost:8091` to configure the database for the first time.
+
+3. Open shell in running container
+
     ```cmd
     docker exec -it my-couchbase /bin/bash
     ```
 
     Note that you should change `my-couchbase` for the name you assigned to the docker container in `DB_SERVER_NAME`.
+
+### Run interactive SQL++ command-line `cbq` 
+From a shell in running container, run:
+
+```bash
+cd /opt/couchbase/bin
+./cbq -u Administrator -p password -engine=http://127.0.0.1:8091
+```
 
