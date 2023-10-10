@@ -14,7 +14,9 @@ docker -v
 docker run -t --name db -p 8091-8096:8091-8096 -p 11210-11211:11210-11211 couchbase/server:enterprise-7.2.0
 ```
 
-Then, to open shell in running container:
+Then, go to `http://localhost:8091` to configure the database for the first time.
+
+Finally, to open shell in running container:
 ```cmd
 docker exec -it db /bin/bash
 ```
