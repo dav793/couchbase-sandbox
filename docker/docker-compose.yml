@@ -1,12 +1,32 @@
 version: '3.0' 
 
 services:
-  db-server:
+  cluster-node-1:
     image: couchbase/server:enterprise-7.2.0
-    container_name: ${DB_SERVER_NAME}
+    container_name: ${NODE_1_NAME}
     restart: "no"
     ports:
       - "8091-8096:8091-8096"
       - "11210-11211:11210-11211"
     volumes:
-      - "${WORKING_DIR}/docker/logs:/opt/couchbase/var/lib/couchbase/logs"
+      - "${WORKING_DIR}/docker/logs/node1:/opt/couchbase/var/lib/couchbase/logs"
+
+  cluster-node-2:
+    image: couchbase/server:enterprise-7.2.0
+    container_name: ${NODE_2_NAME}
+    restart: "no"
+    ports:
+      - "9091-9096:8091-8096"
+      - "12210-12211:11210-11211"
+    volumes:
+      - "${WORKING_DIR}/docker/logs/node2:/opt/couchbase/var/lib/couchbase/logs"
+
+  cluster-node-3:
+    image: couchbase/server:enterprise-7.2.0
+    container_name: ${NODE_3_NAME}
+    restart: "no"
+    ports:
+      - "10091-10096:8091-8096"
+      - "13210-13211:11210-11211"
+    volumes:
+      - "${WORKING_DIR}/docker/logs/node3:/opt/couchbase/var/lib/couchbase/logs"
