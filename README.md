@@ -24,22 +24,39 @@ docker exec -it db /bin/bash
 ### Run 3-node cluster with docker compose
 1. Create + configure `.env` file
 
-    **Windows:**
-    ```cmd
-    copy .env.template .env
-    notepad .env
-    ```
-
     **Mac OS/Linux:**
     ```bash
     cp .env.template .env
     nano .env
     ```
 
+    **Windows:**
+    ```cmd
+    copy .env.template .env
+    notepad .env
+
+    copy .env.bat.template .env.bat
+    notepad .env.bat
+    ```
+
     * `WORKING_DIR` : The filesystem path to your project (this directory).
-    * `NODE_1_NAME` : The name you want to assign to the cluster node 1 docker container (can use default).
-    * `NODE_2_NAME` : The name you want to assign to the cluster node 2 docker container (can use default).
-    * `NODE_3_NAME` : The name you want to assign to the cluster node 3 docker container (can use default).
+    * `NETWORK_NAME` : Name for the docker network (can use default).
+    * `NODE_1_NAME` : Name for the cluster node 1 docker container (can use default).
+    * `NODE_2_NAME` : Name for the cluster node 2 docker container (can use default).
+    * `NODE_3_NAME` : Name for the cluster node 3 docker container (can use default).
+
+2. Create docker network
+
+    **Mac OS/Linux:**
+    ```bash
+    source .env && docker network create --driver bridge ${NETWORK_NAME}
+    ```
+
+    **Windows:**
+    ```cmd
+    call .env.bat
+    docker network create --driver bridge %NETWORK_NAME% 
+    ```
 
 2. Run with docker compose
 

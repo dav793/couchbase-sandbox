@@ -2,3 +2,4 @@ docker/logs/**/*
 !docker/logs/.gitkeep
 
 .env
+.env.bat
